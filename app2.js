@@ -34,6 +34,6 @@ fs.readdir('one',(err, data) => {
 
 fs.readdir('one',(err, data) => {
   data.forEach( file => {
-    console.log(fs.statSync('one/' + file));
+    console.log(fs.statSync(file).size);
   });
 });
