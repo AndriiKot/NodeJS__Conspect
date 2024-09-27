@@ -24,7 +24,7 @@ const routes = {
 };
 
 function serveStaticFile(res, path, contentType, responseCode = 200) {
-  fs.readFile(__dirname + path, (err, data) => {
+  fs.readFile(__dirname + path, (err, data) => {  // !!! WARNING better path(__dirname + pathTofolder) !!!
     if (err) {
       res.writeHead(500, { "Content-Type": text });
       return res.end("500 - Internal Error");
