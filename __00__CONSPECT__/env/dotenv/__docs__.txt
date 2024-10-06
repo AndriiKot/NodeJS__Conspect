@@ -1,0 +1,4 @@
+﻿
+npm
+2024 Weekly Doanloads 40 000 000
+https://www.npmjs.com/package/dotenv

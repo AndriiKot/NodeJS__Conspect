@@ -1,0 +1,4 @@
+
+npm rm express
+Удаляем модуль 'express'
+
