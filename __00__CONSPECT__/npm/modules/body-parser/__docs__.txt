@@ -1,0 +1,44 @@
+﻿
+https://www.npmjs.com/package/body-parser
+2024 35 000 000
+`body-parser` — это middleware для Node.js, 
+который помогает парсить тело HTTP-запросов, 
+особенно в приложениях, использующих Express. 
+Тем не менее, начиная с версии Express 4.16.0, 
+функциональность `body-parser` 
+была встроена непосредственно в сам Express, 
+что позволяет избежать необходимости устанавливать этот модуль отдельно.
+
+Если вы используете Express 4.16.0 или выше, 
+вы можете использовать встроенные методики 
+для парсинга JSON и URL-кодированных данных. 
+Вот краткий пример, как это сделать без установки `body-parser`:
+
+```javascript
+const express = require('express');
+const app = express();
+
+// Для парсинга JSON
+app.use(express.json());
+
+// Для парсинга URL-кодированных данных
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/your-endpoint', (req, res) => {
+    console.log(req.body); // Здесь будет доступно тело запроса
+    res.send('Data received');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+```
+
+Таким образом, если вы используете последнюю версию Express, 
+то нет необходимости устанавливать `body-parser` отдельно, 
+и вы можете обойтись встроенными возможностями. 
+Однако, если вы работаете со старыми версиями 
+Express или используете другой фреймворк,
+вам может понадобиться `body-parser`.
+ 
+ 

@@ -1,0 +1,62 @@
+node-sqlite3
+npm page 
+https://www.npmjs.com/package/sqlite3
+
+`npm sqlite3` — это пакет для работы с базой данных SQLite в среде Node.js. 
+SQLite — это легковесная реляционная база данных, которая хранит данные 
+в одном файле на диске. 
+Пакет `sqlite3` обеспечивает интерфейс для выполнения SQL-запросов, 
+управления транзакциями и взаимодействия с базой данных.
+
+Чтобы использовать `sqlite3` в вашем проекте, 
+вам нужно сначала установить его через npm (Node Package Manager). Для этого выполните команду:
+
+```bash
+npm install sqlite3
+```
+
+После установки вы можете использовать его в своем коде. 
+Вот пример, как можно подключиться к базе данных SQLite и выполнить простой запрос:
+
+```javascript
+const sqlite3 = require('sqlite3').verbose();
+
+// Открываем подключение к базе данных
+let db = new sqlite3.Database('./database.db', (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('Подключено к базе данных.');
+});
+
+// Пример выполнения запроса
+db.serialize(() => {
+    db.run(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)`);
+
+    let stmt = db.prepare(`INSERT INTO users (name) VALUES (?)`);
+    stmt.run('John Doe');
+    stmt.finalize();
+
+    db.each(`SELECT id, name FROM users`, (err, row) => {
+        if (err) {
+            throw err;
+        }
+        console.log(row.id + ": " + row.name);
+    });
+});
+
+// Закрываем подключение
+db.close((err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('Соединение с базой данных закрыто.');
+});
+```
+
+Этот пример показывает основные операции 
+с базой данных: создание таблицы, вставка данных и извлечение данных. 
+Пакет `sqlite3` является популярным выбором для работы 
+с SQLite в Node.js приложениях благодаря своей простоте и эффективности.
+
+

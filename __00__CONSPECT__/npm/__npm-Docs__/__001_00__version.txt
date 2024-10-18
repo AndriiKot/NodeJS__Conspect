@@ -1,3 +1,7 @@
 ﻿
 npm -v
+npm --version
+
+node -v
+node --version
 

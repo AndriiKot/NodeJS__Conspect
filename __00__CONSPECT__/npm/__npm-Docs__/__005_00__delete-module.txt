@@ -2,3 +2,16 @@
 npm rm express
 Удаляем модуль 'express'
 
+or
+
+npm uninstall express
+
+
+npm rm -g express
+
+or
+
+npm uninstall -g express
+
+
+
