@@ -8,3 +8,11 @@ module.exports = function (a, x, n) {
 
 // other-file.js
 // const geometricSum = require('./file.js');
+/*
+const a = 2; // первый член прогрессии
+const x = 0.5; // знаменатель прогрессии
+const n = 10; // количество членов
+
+const result = geometricSum(a, x, n);
+console.log(`Сумма первых ${n} членов геометрической прогрессии: ${result}`);
+*/
